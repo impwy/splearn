@@ -1,7 +1,9 @@
 package spring.splearn.application;
 
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import spring.splearn.application.provided.MemberRegister;
 import spring.splearn.application.required.EmailSender;
@@ -13,6 +15,8 @@ import spring.splearn.domain.MemberRegisterRequest;
 import spring.splearn.domain.PasswordEncoder;
 
 @Service
+@Transactional
+@Validated
 @RequiredArgsConstructor
 public class MemberService implements MemberRegister {
     private final MemberRepository memberRepository;
